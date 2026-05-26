@@ -1,0 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+:root{--bg:#071033;--muted:rgba(255,255,255,.6)}
+html,body,#root{height:100%;margin:0}
+body{background:var(--bg);font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#e6eef8}
