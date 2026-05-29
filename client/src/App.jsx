@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
-
+  //sd
   const sendMessage = async () => {
     if (!input.trim()) return;
     const userMsg = { id: Date.now(), sender: 'user', text: input };
