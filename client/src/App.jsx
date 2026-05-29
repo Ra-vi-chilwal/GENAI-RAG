@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import axios from 'axios';
-import.meta.env
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
