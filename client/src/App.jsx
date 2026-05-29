@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
-
+import axios from 'axios';
+import.meta.env
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -19,16 +20,23 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5000/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMsg.text })
-      });
-      if (!res.ok) throw new Error('network');
-      const data = await res.json();
-      const botMsg = { id: Date.now() + 1, sender: 'bot', text: data.response ?? JSON.stringify(data) };
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/chat`,
+        { question: userMsg.text },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      console.log(res);
+      // if (!res.ok) throw new Error('network');
+      const data = res.data;
+      console.log(data, res);
+      const botMsg = { id: Date.now() + 1, sender: 'bot', text: data.answer ?? JSON.stringify(data) };
       setMessages(m => [...m, botMsg]);
     } catch (e) {
+      console.error(e);
       const errMsg = { id: Date.now() + 2, sender: 'bot', text: 'Error: could not reach server.' };
       setMessages(m => [...m, errMsg]);
     } finally {
