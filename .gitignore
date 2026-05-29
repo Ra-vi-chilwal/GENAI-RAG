@@ -1,0 +1,31 @@
+# Environment variables
+.env
+api/.env
+client/.env
+
+# Data directory (contains private HR policy)
+data/
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node.js
+node_modules/
+
+# Build outputs
+dist/
+build/
+.vite/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
